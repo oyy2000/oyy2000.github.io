@@ -12,7 +12,7 @@ I'm a second-year graduate student in the program Master of Engineering in Elect
 
 I am very fortunate to be advised by [Jingwei Sun](https://jingwei-sun.com/) of CEI Lab from [School of Pratt](https://cei.pratt.duke.edu/), Duke University.
 
-You can find my CV here: [XX's Curriculum Vitae](../assets/YangOuyang's_Resume.pdf).
+You can find my CV here: [Yang Ouyang's Curriculum Vitae](../assets/YangOuyang's_Resume.pdf).
 
 [Email](mailto:yang.ouyang@duke.edu) / [Github](https://github.com/oyy2000) / [Wechat](../images/wechat.jpg) / [LinkedIn](https://www.linkedin.com/in/yang-ouyang-363425213/)
 
