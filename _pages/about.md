@@ -15,7 +15,7 @@ I am Yang Ouyang (欧阳洋 in Chinese), a second-year graduate student in the p
 
 Currently, I feel very fortunate to  collaborate with [Mr. Jingwei Sun](https://jingwei-sun.com/) of [CEI Lab](https://cei.pratt.duke.edu/) from School of Pratt, Duke University in Large Language Models Privacy Leakage and Heterogenous Federated Learning.
 
-You can find my CV here: [Yang Ouyang's Curriculum Vitae](../assets/Yang_Ouyang_CV.pdf).
+You can find my CV here: [Yang Ouyang's Curriculum Vitae](../assets/Yang_Ouyang_CV_March_8th.pdf).
 
 [Email](mailto:yang.ouyang@duke.edu) / [Github](https://github.com/oyy2000) / [LinkedIn](https://www.linkedin.com/in/yang-ouyang-363425213/)
 

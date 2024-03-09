@@ -16,11 +16,20 @@ Education Experience
 * B.E. in Computer Science and Technology, Shenzhen University, Sep. 2018 - July 2022 at Shenzhen, China
 * M.Eng. in Electrical and Computer Engineering, Duke University, Aug. 2022 - May 2024 at Durham, U.S.A
 
-Project Experience
+Research Experience
 ======
 * Adversarial Privacy Attacks on Aligned Large Language Models, Oct. 2023 - Present at Durham, U.S.A
   - Conducted comprehensive experiments using Greedy Coordinate Gradient to identify exact privacy leakage (90% and even all of the Output from material) without directly related prompt of Large Language Models like StableLM-Tuned-Alpha and StableVicuna-13B which are fine-tuned using Reinforcement Learning from Human Feedback on various conversational and instructional datasets. 
-  - Subsequent to this analysis, we explored two avenues: developing robust countermeasures to reinforce model privacy or innovating an enhanced adversarial approach to refine the RLHF training protocol, thereby mitigating potential privacy exploitation
+  - Subsequent to this analysis, we explored two avenues: developing robust countermeasures to reinforce model privacy or innovating an enhanced adversarial approach to refine the RLHF training protocol, thereby mitigating potential privacy exploitation.
+
+* Enhancing Pre-trained Data Detection for LLM Privacy Protection Jan. 2024 - Present at Durham, U.S.A
+
+  - Refined the MIN-K% PROB metric using temperature scaling, achieving a 5% improvement over benchmark methods for detecting pre-trained data in LLMs. 
+
+  - Developed a novel gap-based method (GAP) for pre-trained data detection, improving AUC by 10% over the state-of-the-art (MIN-K% PROB) by measuring log probability density gaps within datasets.
+
+* Addressing Data Scarcity in Multimodal Models Jan. 2024 - Present at Durham, U.S.A
+  - Developing methods to generate high-quality synthetic multimodal datasets. Leveraging ChatGPT 4 for in-context prompt generation, driving image creation with Stable Diffusion models, and employing techniques like BoxDiff for precise image-text alignment.
 
 
 Internship Experience
