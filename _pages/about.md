@@ -8,12 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-I am Yang Ouyang (欧阳洋 in Chinese), a second-year graduate student in the program Master of Engineering in Electrical and Computer Engineering at [School of Pratt](https://eecs.pku.edu.cn/), [Duke University](https://duke.edu/). Previously I received bachelor’s degree at Shenzhen University, where I worked with [Prof. Jianqiang Li](https://scholar.google.com/citations?user=-oVMPBwAAAAJ&hl=zh-CN) of [College of CSSE](https://csse.szu.edu.cn/#), Shenzhen University. My research interest includes 
+I am Yang Ouyang (欧阳洋 in Chinese), a second-year graduate student in the program Master of Engineering in Electrical and Computer Engineering at [School of Pratt](https://pratt.duke.edu/), [Duke University](https://duke.edu/). Previously I received bachelor’s degree at Shenzhen University, where I worked with [Prof. Jianqiang Li](https://scholar.google.com/citations?user=-oVMPBwAAAAJ&hl=zh-CN) of [College of CSSE](https://csse.szu.edu.cn/#), Shenzhen University. My research interest includes 
 - Large Language Models with Privacy 
-- Heterogenous Federated Learning
-- Dataset Augmentation in Particular Application Domains
+- Dataset Augmentation
 
-Currently, I feel very fortunate to  collaborate with [Mr. Jingwei Sun](https://jingwei-sun.com/) of [CEI Lab](https://cei.pratt.duke.edu/) from School of Pratt, Duke University in Large Language Models Privacy Leakage and Heterogenous Federated Learning.
+Currently, I feel very fortunate to collaborate with Ph.D. Students [Jingwei Sun](https://jingwei-sun.com/) and [Jingyang Zhang](https://zjysteven.github.io/) of [CEI Lab](https://cei.pratt.duke.edu/) directed by Professor Yiran Chen from ECE Department, Duke University in Pre-trained Data Detection for Large Language Model Privacy Protection and Multi-Modal models training datasets augmentation.
 
 You can find my CV here: [Yang Ouyang's Curriculum Vitae](../assets/Yang_Ouyang_CV_March_8th.pdf).
 
