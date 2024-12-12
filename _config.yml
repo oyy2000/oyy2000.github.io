@@ -155,12 +155,12 @@ analytics:
 author:
   name             : "Yang Ouyang"
   avatar           : "profile.png"
-  bio              : "MEng ECE 24' @ Duke Pratt"
-  location         : "Durham, NC, USA"
+  bio              : "Ph.D. Student @ NC State ECE"
+  location         : "Raleigh, NC, USA"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : #"http://yourfullgooglescholarurl.com"
-  email            :  yang.ouyang@duke.edu
+  email            :  youyang7@ncsu.edu
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
