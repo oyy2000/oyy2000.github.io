@@ -14,7 +14,7 @@ He is Yang Ouyang (欧阳洋 in Chinese), a first-year Ph.D. student in [North C
 
 Currently, I feel very fortunate to collaborate with Professor Kaixiong Zhou in Large Language Model Jailbreak Defense and AI for Biology.
 
-You can find his CV here: [Yang Ouyang's Curriculum Vitae](../assets/Yang_Ouyang_CV_March_8th.pdf).
+You can find his CV here: [Yang Ouyang's Curriculum Vitae](../files/Yang_Ouyang_CV_12_14.pdf).
 
 Email: [youang7 at ncsu dot edu](mailto:youang7@ncsu.edu) / [Github](https://github.com/oyy2000) / [LinkedIn](https://www.linkedin.com/in/yang-ouyang-363425213/)
 
