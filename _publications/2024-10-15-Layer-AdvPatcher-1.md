@@ -8,7 +8,7 @@ Achieved a 25% reduction in Attack Success Rate using our method across models i
 date: 2024-10-15
 # venue: 'NAACL (In submission)'
 # slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
-paperurl: 'http://academicpages.github.io/files/Layer_Level_Self_Exposure.pdf'
+paperurl: '../files/Layer_Level_Self_Exposure.pdf'
 citation: 'Yang Ouyang, Hengrui Gu, Shuhang Lin, Wenyue Hua, Jie Peng, Bhavya Kailkhura, Meijun Gao, Tianlong Chen, Kaixiong Zhou. “Layer-Level Self-Exposure and Patch: Affirmative Token Mitigation for Jailbreak Attack Defense”, in submission to NAACL 2025'
 ---
 
