@@ -25,7 +25,7 @@ Before joining NCSU, he received my Master of Engineering in Electrical and Comp
 
 **Others**
 
-You can find his CV here: [Yang Ouyang's Curriculum Vitae](../files/Yang_Ouyang_CV_01_24.pdf).
+You can find his CV here: [Yang Ouyang's Curriculum Vitae](../files/Yang_Ouyang_s_CV_AI4Sci_03_28.pdf).
 
 Email: [youang7 at ncsu dot edu](mailto:youang7@ncsu.edu) / [Github](https://github.com/oyy2000) / [LinkedIn](https://www.linkedin.com/in/yang-ouyang-363425213/)
 
