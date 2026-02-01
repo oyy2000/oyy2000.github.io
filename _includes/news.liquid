@@ -1,6 +1,9 @@
 <div class="news">
   {% if site.news != blank %}
-    {% assign news_size = site.news | size %}
+    {%- assign news_all = site.news | reverse -%}
+    {%- assign news = news_all | where_exp: "n", "n.hidden != true" -%}
+    {% assign news_size = news | size %}
+    {% assign initial_limit = page.announcements.limit | default: 5 %}
     <div
       class="table-responsive"
       {% if include.limit and page.announcements.scrollable and news_size > 3 %}
@@ -8,15 +11,9 @@
       {% endif %}
     >
       <table class="table table-sm table-borderless">
-        {% assign news = site.news | reverse %}
-        {% if include.limit and page.announcements.limit %}
-          {% assign news_limit = page.announcements.limit %}
-        {% else %}
-          {% assign news_limit = news_size %}
-        {% endif %}
-        {% for item in news limit: news_limit %}
-          <tr>
-            <th scope="row" style="width: 20%">{{ item.date | date: '%b %d, %Y' }}</th>
+        {% for item in news %}
+          <tr class="news-row">
+            <th scope="row" style="width: 20%">{{ item.date | date: '%b, %Y' }}</th>
             <td>
               {% if item.inline %}
                 {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
@@ -27,8 +24,50 @@
           </tr>
         {% endfor %}
       </table>
+      {% if news_size > initial_limit %}
+        <div class="text-center mt-2">
+          <button
+            class="btn btn-sm btn-outline-primary"
+            id="news-load-more"
+            data-step="{{ initial_limit }}"
+          >
+            Load more
+          </button>
+        </div>
+      {% endif %}
     </div>
   {% else %}
     <p>No news so far...</p>
   {% endif %}
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var newsContainer = document.querySelector('.news');
+  if (!newsContainer) return;
+
+  var rows = newsContainer.querySelectorAll('tr.news-row');
+  if (!rows.length) return;
+
+  var loadMoreBtn = document.getElementById('news-load-more');
+  if (!loadMoreBtn) return;
+
+  var step = parseInt(loadMoreBtn.getAttribute('data-step') || '5', 10);
+  var visibleCount = step;
+
+  for (var i = step; i < rows.length; i++) {
+    rows[i].style.display = 'none';
+  }
+
+  loadMoreBtn.addEventListener('click', function () {
+    var next = Math.min(visibleCount + step, rows.length);
+    for (var i = visibleCount; i < next; i++) {
+      rows[i].style.display = '';
+    }
+    visibleCount = next;
+    if (visibleCount >= rows.length) {
+      loadMoreBtn.style.display = 'none';
+    }
+  });
+});
+</script>
