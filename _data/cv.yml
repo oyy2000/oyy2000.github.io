@@ -28,7 +28,7 @@ cv:
         area: Electrical and Computer Engineering
         studyType: Doctor of Philosophy
         start_date: 2024-08
-        end_date: Present
+        end_date:
         highlights:
           - "Advisor: Jung-Eun Kim"
           - "Research Interests: Trustworthy & Efficient ML; Interpretable LLMs (Chain-of-Thought)"
@@ -108,6 +108,12 @@ cv:
 
     Skills:
       - name: Programming Languages
-        keywords: "Python, Java, C++, Javascript"
+        keywords:
+          - Python
+          - Java
+          - C++
+          - JavaScript
       - name: Deep Learning Frameworks
-        keywords: "PyTorch, Huggingface"
+        keywords:
+          - PyTorch
+          - Huggingface
