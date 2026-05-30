@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2025-04-30 07:59:00-0400
+date: 2026-04-30 07:59:00-0400
 inline: true
 related_posts: false
-hidden: true
+hidden: false
 ---
-One paper is accepted to ICML 2026! :smile: 
+One paper is accepted to ICML 2026! :tada: 
