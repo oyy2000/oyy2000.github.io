@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 hidden: false
 ---
-One paper is accepted to ICML 2026! :tada: 
+Two papers are accepted to ICML 2026! :tada: 
