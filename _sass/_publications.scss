@@ -41,6 +41,9 @@
 
       .preview {
         display: inline-block;
+        width: 100%;
+        height: auto;
+        background-color: white;
       }
 
       .abbr {
@@ -50,10 +53,14 @@
           display: inline-block;
           background-color: var(--global-theme-color);
           margin-bottom: 0.5rem;
-          color: var(--global-card-bg-color) !important;
+          color: white !important;
+
+          &.venue-badge {
+            color: #243447 !important;
+          }
 
           a {
-            color: white;
+            color: inherit;
 
             &:hover {
               text-decoration: none;

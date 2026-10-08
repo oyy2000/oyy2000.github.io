@@ -1,0 +1,22 @@
+{% assign umami_ready = false %}
+{% assign globe_ready = false %}
+{% if site.visitor_analytics.umami.enabled and site.visitor_analytics.umami.website_id != blank %}
+  {% assign umami_ready = true %}
+{% endif %}
+{% if site.visitor_analytics.mapmyvisitors.enabled and site.visitor_analytics.mapmyvisitors.globe_id != blank %}
+  {% assign globe_ready = true %}
+{% endif %}
+{% if page.analytics != false %}
+  {% if umami_ready or globe_ready %}
+    <script
+      defer
+      src="{{ '/assets/js/visitor-analytics.js' | relative_url | bust_file_cache }}"
+      data-domains="{{ site.visitor_analytics.domains | escape }}"
+      data-website-id="{% if umami_ready %}{{ site.visitor_analytics.umami.website_id | escape }}{% endif %}"
+      data-script-url="{{ site.visitor_analytics.umami.script_url | escape }}"
+      data-cv-path="{{ site.data.socials.cv_pdf | relative_url | escape }}"
+      data-page-cv-path="{% if page.cv_pdf %}{{ page.cv_pdf | relative_url | escape }}{% endif %}"
+      data-cv-page="{{ '/cv/' | relative_url }}"
+    ></script>
+  {% endif %}
+{% endif %}

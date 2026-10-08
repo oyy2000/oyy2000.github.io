@@ -1,7 +1,7 @@
 <div class="news">
   {% if site.news != blank %}
     {%- assign news_all = site.news | reverse -%}
-    {%- assign news = news_all | where_exp: "n", "n.hidden != true" -%}
+    {%- assign news = news_all | where_exp: 'n', 'n.hidden != true' -%}
     {% assign news_size = news | size %}
     {% assign initial_limit = page.announcements.limit | default: 5 %}
     <div
@@ -42,32 +42,32 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var newsContainer = document.querySelector('.news');
-  if (!newsContainer) return;
+  document.addEventListener('DOMContentLoaded', function () {
+    var newsContainer = document.querySelector('.news');
+    if (!newsContainer) return;
 
-  var rows = newsContainer.querySelectorAll('tr.news-row');
-  if (!rows.length) return;
+    var rows = newsContainer.querySelectorAll('tr.news-row');
+    if (!rows.length) return;
 
-  var loadMoreBtn = document.getElementById('news-load-more');
-  if (!loadMoreBtn) return;
+    var loadMoreBtn = document.getElementById('news-load-more');
+    if (!loadMoreBtn) return;
 
-  var step = parseInt(loadMoreBtn.getAttribute('data-step') || '5', 10);
-  var visibleCount = step;
+    var step = parseInt(loadMoreBtn.getAttribute('data-step') || '5', 10);
+    var visibleCount = step;
 
-  for (var i = step; i < rows.length; i++) {
-    rows[i].style.display = 'none';
-  }
-
-  loadMoreBtn.addEventListener('click', function () {
-    var next = Math.min(visibleCount + step, rows.length);
-    for (var i = visibleCount; i < next; i++) {
-      rows[i].style.display = '';
+    for (var i = step; i < rows.length; i++) {
+      rows[i].style.display = 'none';
     }
-    visibleCount = next;
-    if (visibleCount >= rows.length) {
-      loadMoreBtn.style.display = 'none';
-    }
+
+    loadMoreBtn.addEventListener('click', function () {
+      var next = Math.min(visibleCount + step, rows.length);
+      for (var i = visibleCount; i < next; i++) {
+        rows[i].style.display = '';
+      }
+      visibleCount = next;
+      if (visibleCount >= rows.length) {
+        loadMoreBtn.style.display = 'none';
+      }
+    });
   });
-});
 </script>

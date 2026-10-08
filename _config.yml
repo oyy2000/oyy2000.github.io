@@ -4,10 +4,10 @@
 
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Yang
-middle_name: 
+middle_name:
 last_name: Ouyang
 contact_note: >
-  
+
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
@@ -84,6 +84,17 @@ google_analytics: # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
 cronitor_analytics: # cronitor RUM analytics site ID (format: XXXXXXXXX)
 pirsch_analytics: # your Pirsch analytics site ID (length 32 characters)
 openpanel_analytics: # your Openpanel analytics client ID (format: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX)
+
+# Hosted analytics. See CUSTOMIZE.md for setup and dashboard access.
+visitor_analytics:
+  domains: "oyy2000.github.io" # comma-separated hostnames; excludes local previews
+  umami:
+    enabled: true
+    website_id: "6b3708cf-eeb5-4f4f-8ab5-e416b76319ac"
+    script_url: "https://cloud.umami.is/script.js"
+  mapmyvisitors:
+    enabled: true
+    globe_id: "tN8qxReXXBeor7RWkERscG1nqfRabT2NCzJi6zEd-PA"
 
 # For Google Search Console, see https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification&zippy=%2Chtml-tag
 google_site_verification: # your google-site-verification ID (Google Search Console)
@@ -187,6 +198,7 @@ kramdown:
 # Includes & excludes
 include: ["_pages", "_scripts"]
 exclude:
+  - tests/
   - bin/
   - CONTRIBUTING.md
   - CUSTOMIZE.md
@@ -345,7 +357,7 @@ filtered_bibtex_keywords:
   ]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)
-max_author_limit:  # leave blank to always show all authors
+max_author_limit: # leave blank to always show all authors
 more_authors_animation_delay: 10 # more authors are revealed on click using animation; smaller delay means faster animation
 
 # Enables publication thumbnails. If disabled, none of the publications will display thumbnails, even if specified in the bib entry.

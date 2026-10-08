@@ -9,6 +9,7 @@ Here we will give you some tips on how to customize the website. One important t
 - [Customize](#customize)
   - [Project structure](#project-structure)
   - [Configuration](#configuration)
+  - [Visitor analytics and globe](#visitor-analytics-and-globe)
   - [GitHub Copilot Customization Agent](#github-copilot-customization-agent)
     - [What the Agent Can Help With](#what-the-agent-can-help-with)
     - [How to Use the Agent](#how-to-use-the-agent)
@@ -936,6 +937,80 @@ The `_sass/` directory contains specialized SCSS files organized by feature and 
 - **Layout:** Edit `_layout.scss` for overall page layout styles.
 
 The easiest way to preview changes in advance is by using [Chrome dev tools](https://developer.chrome.com/docs/devtools/css) or [Firefox dev tools](https://firefox-source-docs.mozilla.org/devtools-user/). Inspect elements to see which styles apply and experiment with changes before editing the SCSS files. For more information on how to use these tools, check [Chrome](https://developer.chrome.com/docs/devtools/css) and [Firefox](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html) how-tos, and [this tutorial](https://www.youtube.com/watch?v=l0sgiwJyEu4).
+
+## Visitor analytics and globe
+
+This website uses **Umami Cloud** for the private analytics dashboard and **MapMyVisitors** for the public visitor globe on the home page. GitHub Pages continues to host the website; no separate backend or database is needed in this repository.
+
+### Account configuration
+
+Both services are configured under `visitor_analytics` in `_config.yml`:
+
+```yaml
+visitor_analytics:
+  domains: "oyy2000.github.io"
+  umami:
+    enabled: true
+    website_id: "YOUR-UMAMI-WEBSITE-ID"
+    script_url: "https://cloud.umami.is/script.js"
+  mapmyvisitors:
+    enabled: true
+    globe_id: "YOUR-MAPMYVISITORS-ID"
+```
+
+1. Sign in to [Umami Cloud](https://cloud.umami.is/), add `oyy2000.github.io`, and copy `data-website-id` from the website's [tracking code](https://docs.umami.is/docs/collect-data). The supplied website ID is already configured. View the site's dashboard in Umami; keep its Share URL disabled if you want the dashboard to remain private.
+2. Create a globe for `https://oyy2000.github.io/` at [MapMyVisitors](https://mapmyvisitors.com/). Copy only the `d=` value from the generated `globe.js` URL into `globe_id`. The supplied globe ID is already configured. This is a public widget with its own statistics, separate from Umami.
+3. Publish the site through the existing GitHub Pages workflow. Visit the published site and check Umami's realtime dashboard. The production hostname in `domains` prevents local previews from sending data. Add a custom hostname here and in Umami if the website domain changes.
+
+These IDs are public installation identifiers, not login credentials. Never put an account password or API token in `_config.yml`. An empty ID or `enabled: false` disables that service. Set `analytics: false` in a page's frontmatter to exclude that page from both services.
+
+### What is tracked
+
+Umami automatically records pageviews, referrers, approximate locations, and UTM campaign parameters. The local script also records these click events using the [Umami tracking API](https://docs.umami.is/docs/track-events):
+
+| Event            | Trigger                                                                   |
+| ---------------- | ------------------------------------------------------------------------- |
+| `cv_click`       | CV navigation or a configured CV PDF link, including the social CV icon   |
+| `pdf_click`      | Other PDF links, including arXiv `/pdf/` links without a `.pdf` extension |
+| `email_click`    | A `mailto:` link                                                          |
+| `download_click` | Another link with a `download` attribute                                  |
+| `outbound_click` | Another link to an external website                                       |
+
+Each click records the current page path and, except for email, the destination path/hostname. The custom event properties omit link text, email addresses, URL query strings, and fragments. Umami's standard pageview tracking still processes the current page URL and its campaign parameters. Clicking a PDF counts as a click, not proof that the download completed. Links explicitly marked with `data-umami-event` use Umami's native event handling instead of being counted twice.
+
+The globe measures visits to the home page, while Umami measures all instrumented pages, so their totals can differ. IP locations are approximate; neither tool establishes whether a visitor is an HR employee.
+
+The home page displays only the centered globe, with no visible heading, caption, or credit text. Local previews use a static globe with a screen-reader status of **Local preview · Tracking disabled**. It contains no visitor markers and loads neither analytics provider, so development visits do not affect the statistics. The published hostname loads the live MapMyVisitors globe instead. Browsers excluded from tracking also see the static preview. The illustration uses public-domain land geometry from [Natural Earth](https://www.naturalearthdata.com/).
+
+### Recruitment links
+
+Use a source label for links sent with job applications, for example:
+
+```text
+https://oyy2000.github.io/?utm_source=company_a&utm_medium=recruiting&utm_campaign=2027_applications
+```
+
+Filter by those UTM parameters in Umami to see which recruitment links brought visits. A link can be forwarded or opened by automated email scanners, so this is a source signal rather than verified visitor identity. Use company/application labels rather than a recruiter's name or email address.
+
+### Exclude your own browser and verify changes
+
+On the published site, open the browser developer console and run:
+
+```javascript
+localStorage.setItem("umami.disabled", "1");
+location.reload();
+```
+
+This integration excludes that browser from both services. To restore tracking, remove the flag and reload:
+
+```javascript
+localStorage.removeItem("umami.disabled");
+location.reload();
+```
+
+The integration also honors Do Not Track and Global Privacy Control. An ad blocker or a blocked provider can prevent analytics; it does not stop links from opening. The visitor notice is at `/privacy/`.
+
+Run `node --test tests/visitor-analytics.test.mjs` for the click classification, loading, and exclusion checks. Use `docker compose exec -T jekyll bundle exec jekyll build` for the site build; the development server must be restarted to load changes to `_config.yml`.
 
 ## Scheduled Posts
 

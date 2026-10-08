@@ -1,0 +1,29 @@
+{% if site.visitor_analytics.mapmyvisitors.enabled and site.visitor_analytics.mapmyvisitors.globe_id != blank and page.analytics != false %}
+  <link rel="stylesheet" href="{{ '/assets/css/visitor-globe.css' | relative_url | bust_file_cache }}">
+  <section class="visitor-globe" id="visitor-globe" aria-label="Visitor globe">
+    <div
+      class="visitor-globe-widget"
+      data-visitor-globe
+      data-script-url="https://mapmyvisitors.com/globe.js?d={{ site.visitor_analytics.mapmyvisitors.globe_id | url_encode | escape }}&amp;w=220"
+      aria-label="Globe showing approximate visitor locations"
+    >
+      <div class="visitor-globe-preview" data-globe-preview hidden>
+        <img
+          src="{{ '/assets/img/visitor-globe-preview.svg' | relative_url | bust_file_cache }}"
+          alt="Illustrative globe, without visitor data"
+          width="220"
+          height="220"
+        >
+        <span class="sr-only" data-globe-status></span>
+      </div>
+      <noscript>
+        <img
+          src="{{ '/assets/img/visitor-globe-preview.svg' | relative_url | bust_file_cache }}"
+          alt="Illustrative globe, without visitor data"
+          width="220"
+          height="220"
+        >
+      </noscript>
+    </div>
+  </section>
+{% endif %}
