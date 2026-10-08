@@ -1,0 +1,23 @@
+Publication preview image sources
+
+stepback.png
+  StepBack: main figure supplied by the site owner, rendered from PDF page 1.
+  Local source: stepback.pdf
+
+densesteer.png
+  DenseSteer: Figure 2, PDF page 2 (framework overview).
+  https://arxiv.org/pdf/2605.29247
+
+plan-then-action.png
+  Plan Then Action: Figure 2, PDF page 4 (GRPO / PTA-GRPO comparison).
+  https://arxiv.org/pdf/2510.01833
+
+layer-advpatcher.png
+  Layer-Level Self-Exposure and Patch: Figure 2, PDF page 2 (method pipeline).
+  https://aclanthology.org/2025.naacl-long.623.pdf
+
+min-k-plus-plus.png
+  Min-K%++: Figure 1, PDF page 2 (problem overview and ROC comparison).
+  https://arxiv.org/pdf/2404.02936
+
+Images are cropped from the original PDF figures, with white padding added.
