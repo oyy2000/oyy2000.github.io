@@ -94,7 +94,7 @@ visitor_analytics:
     script_url: "https://cloud.umami.is/script.js"
   mapmyvisitors:
     enabled: true
-    globe_id: "tN8qxReXXBeor7RWkERscG1nqfRabT2NCzJi6zEd-PA"
+    globe_id: "92TplFJOmquLc-neEfKI-4geykXnxITjBm3JCfe2ORQ" # Verified tracking ID for /web/1c8r9; the beta Globe code emits a broken ID
 
 # For Google Search Console, see https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification&zippy=%2Chtml-tag
 google_site_verification: # your google-site-verification ID (Google Search Console)
