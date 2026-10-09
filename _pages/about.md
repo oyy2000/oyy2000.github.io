@@ -6,7 +6,7 @@ subtitle: '"The future is in our hands"'
 
 profile:
   align: right
-  image: prof_pic.png
+  image: profile-lake-more-sky.png
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>youyang7 AT ncsu DOT edu</p>
