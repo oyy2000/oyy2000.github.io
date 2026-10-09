@@ -90,7 +90,7 @@ visitor_analytics:
   domains: "oyy2000.github.io" # comma-separated hostnames; excludes local previews
   umami:
     enabled: true
-    website_id: "6b3708cf-eeb5-4f4f-8ab5-e416b76319ac"
+    website_id: "1e2a5979-4458-4bd7-9c83-b05db507e480" # Website ID from the project's tracking code, not the account ID
     script_url: "https://cloud.umami.is/script.js"
   mapmyvisitors:
     enabled: true

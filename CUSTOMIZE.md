@@ -962,7 +962,7 @@ visitor_analytics:
     globe_id: "YOUR-MAPMYVISITORS-ID"
 ```
 
-1. Sign in to [Umami Cloud](https://cloud.umami.is/), add `oyy2000.github.io`, and copy `data-website-id` from the website's [tracking code](https://docs.umami.is/docs/collect-data). The supplied website ID is already configured. View the site's dashboard in Umami; keep its Share URL disabled if you want the dashboard to remain private.
+1. Sign in to [Umami Cloud](https://cloud.umami.is/), add `oyy2000.github.io`, and copy `data-website-id` from the website's [tracking code](https://docs.umami.is/docs/collect-data). Use that project's **Website ID**, not your account or user ID. The site is configured for the owner's `birthday` project. View that project's dashboard in Umami; keep its Share URL disabled if you want the dashboard to remain private.
 2. Create a globe for `https://oyy2000.github.io/` at [MapMyVisitors](https://mapmyvisitors.com/). Copy only the `d=` value from the generated `globe.js` URL into `globe_id`. The supplied globe ID is already configured. This is a public widget with its own statistics, separate from Umami.
 3. Publish the site through the existing GitHub Pages workflow. Visit the published site and check Umami's realtime dashboard. The production hostname in `domains` prevents local previews from sending data. Add a custom hostname here and in Umami if the website domain changes.
 
