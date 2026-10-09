@@ -40,10 +40,17 @@
   }
 
   if (globe) {
-    const script = appendScript(globe.dataset.scriptUrl, globe, { id: "mmvst_globe" });
-    script.addEventListener("error", () => {
-      showGlobePreview("Preview · Visitor data unavailable");
-    });
+    // The legacy provider needs eval. Keep it in an opaque sandbox, outside the
+    // homepage's JavaScript context and Content Security Policy.
+    const frame = document.createElement("iframe");
+    frame.src = globe.dataset.frameUrl;
+    frame.title = "Globe showing approximate visitor locations";
+    frame.className = "visitor-globe-frame";
+    frame.width = "220";
+    frame.height = "250";
+    frame.setAttribute("sandbox", "allow-scripts allow-popups allow-popups-to-escape-sandbox");
+    frame.setAttribute("referrerpolicy", "strict-origin");
+    globe.appendChild(frame);
   }
 
   if (!config.websiteId || !config.scriptUrl) return;

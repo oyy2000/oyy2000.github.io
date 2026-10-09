@@ -984,7 +984,7 @@ Each click records the current page path and, except for email, the destination 
 
 The globe measures visits to the home page, while Umami measures all instrumented pages, so their totals can differ. IP locations are approximate; neither tool establishes whether a visitor is an HR employee.
 
-The home page displays only the centered globe, with no visible heading, caption, or credit text. Local previews use a static globe with a screen-reader status of **Local preview · Tracking disabled**. It contains no visitor markers and loads neither analytics provider, so development visits do not affect the statistics. The published hostname loads the live MapMyVisitors globe instead. Browsers excluded from tracking also see the static preview. The illustration uses public-domain land geometry from [Natural Earth](https://www.naturalearthdata.com/).
+The home page displays only the centered globe, with no visible heading, caption, or credit text. Local previews use a static globe with a screen-reader status of **Local preview · Tracking disabled**. It contains no visitor markers and loads neither analytics provider, so development visits do not affect the statistics. The published hostname loads the live MapMyVisitors globe in a sandboxed iframe; its legacy code requires `eval`, which is permitted only within that isolated document. The iframe does not grant `allow-same-origin`, and the homepage's Content Security Policy continues to prohibit `eval`. The frame page is excluded from search indexing, Umami, and direct-visit tracking. Browsers excluded from tracking also see the static preview. The illustration uses public-domain land geometry from [Natural Earth](https://www.naturalearthdata.com/).
 
 ### Recruitment links
 

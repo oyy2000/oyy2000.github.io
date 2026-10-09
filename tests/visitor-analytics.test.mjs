@@ -4,10 +4,12 @@ import { test } from "node:test";
 import { runInNewContext } from "node:vm";
 
 const source = readFileSync(new URL("../assets/js/visitor-analytics.js", import.meta.url), "utf8");
+const frameSource = readFileSync(new URL("../assets/js/visitor-globe-frame.js", import.meta.url), "utf8");
 
 function boot(options = {}) {
   const calls = [];
   const scripts = [];
+  const frames = [];
   const handlers = {};
   const section = { hidden: false };
   const globeStatus = { textContent: "" };
@@ -15,10 +17,10 @@ function boot(options = {}) {
   const location = new URL(options.url || "https://oyy2000.github.io/?utm_source=test");
   const globe = options.globe
     ? {
-        dataset: { scriptUrl: "https://mapmyvisitors.com/globe.js?d=TEST&w=220" },
+        dataset: { frameUrl: "/visitor-globe-frame/" },
         closest: () => section,
         querySelector: () => globePreview,
-        appendChild: (script) => scripts.push(script),
+        appendChild: (frame) => frames.push(frame),
       }
     : null;
   const document = {
@@ -86,19 +88,23 @@ function boot(options = {}) {
       },
     });
   }
-  return { calls, scripts, section, globe, globePreview, globeStatus, window, context, load, click };
+  return { calls, scripts, frames, section, globe, globePreview, globeStatus, window, context, load, click };
 }
 
-test("loads each provider once with the correct website and globe identifiers", () => {
+test("loads Umami once and isolates the globe without allowing same-origin access", () => {
   const app = boot({ globe: true });
-  assert.equal(app.scripts.length, 2);
-  assert.equal(app.scripts[0].attributes.id, "mmvst_globe");
-  assert.equal(app.scripts[1].attributes["data-website-id"], "test-website");
-  assert.equal(app.scripts[1].attributes["data-domains"], "oyy2000.github.io");
-  assert.equal(app.scripts[1].attributes["data-do-not-track"], "true");
+  assert.equal(app.scripts.length, 1);
+  assert.equal(app.frames.length, 1);
+  assert.equal(app.frames[0].src, "/visitor-globe-frame/");
+  assert.equal(app.frames[0].attributes.sandbox, "allow-scripts allow-popups allow-popups-to-escape-sandbox");
+  assert.equal(app.frames[0].attributes.referrerpolicy, "strict-origin");
+  assert.equal(app.scripts[0].attributes["data-website-id"], "test-website");
+  assert.equal(app.scripts[0].attributes["data-domains"], "oyy2000.github.io");
+  assert.equal(app.scripts[0].attributes["data-do-not-track"], "true");
   assert.equal(app.globePreview.hidden, true);
   runInNewContext(source, app.context);
-  assert.equal(app.scripts.length, 2);
+  assert.equal(app.scripts.length, 1);
+  assert.equal(app.frames.length, 1);
 });
 
 test("classifies CV icons, the CV page, PDFs, arXiv PDFs, mail, downloads, and external links", () => {
@@ -176,6 +182,7 @@ test("shows a nontracking globe preview for localhost, own browser, Do Not Track
   ]) {
     const app = boot({ ...options, globe: true });
     assert.equal(app.scripts.length, 0);
+    assert.equal(app.frames.length, 0);
     assert.equal(app.section.hidden, false);
     assert.equal(app.globePreview.hidden, false);
     assert.match(app.globeStatus.textContent, /Tracking disabled/);
@@ -189,10 +196,8 @@ test("storage restrictions do not break tracking and either provider can work in
   assert.equal(boot({ storageThrows: true }).scripts.length, 1);
   assert.equal(boot({ config: { websiteId: "" } }).scripts.length, 0);
   const globeOnly = boot({ globe: true, config: { websiteId: "" } });
-  assert.equal(globeOnly.scripts.length, 1);
-  globeOnly.scripts[0].listeners.error();
-  assert.equal(globeOnly.globePreview.hidden, false);
-  assert.match(globeOnly.globeStatus.textContent, /Visitor data unavailable/);
+  assert.equal(globeOnly.scripts.length, 0);
+  assert.equal(globeOnly.frames.length, 1);
 });
 
 test("supports a project-site baseurl and an external configured CV", () => {
@@ -205,4 +210,32 @@ test("supports a project-site baseurl and an external configured CV", () => {
     app.calls.map(([name]) => name),
     ["cv_click", "cv_click"]
   );
+});
+
+test("the frame does not track direct visits, foreign embeds, local previews, or privacy opt-outs", () => {
+  for (const options of [
+    { direct: true },
+    { referrer: "https://unrelated.example/" },
+    { referrer: "" },
+    { hostname: "localhost" },
+    { navigator: { doNotTrack: "1" } },
+    { navigator: { globalPrivacyControl: true } },
+  ]) {
+    const window = { parent: {}, location: { hostname: options.hostname || "oyy2000.github.io" } };
+    if (options.direct) window.parent = window;
+    assert.doesNotThrow(() =>
+      runInNewContext(frameSource, {
+        window,
+        navigator: options.navigator || {},
+        URL,
+        document: {
+          currentScript: { dataset: { domains: "oyy2000.github.io", scriptUrl: "https://mapmyvisitors.com/globe.js?d=TEST" } },
+          referrer: options.referrer ?? "https://oyy2000.github.io/",
+          querySelector() {
+            throw new Error("Excluded frame must not initialize the provider");
+          },
+        },
+      })
+    );
+  }
 });

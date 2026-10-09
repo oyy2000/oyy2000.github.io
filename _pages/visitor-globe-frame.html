@@ -1,0 +1,39 @@
+---
+layout: null
+permalink: /visitor-globe-frame/
+nav: false
+sitemap: false
+analytics: false
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="strict-origin" />
+    <!-- This document is loaded only inside an opaque sandbox. The parent keeps its CSP. -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self' {{ site.url | escape }} https://mapmyvisitors.com https://cdnjs.cloudflare.com 'unsafe-eval'; style-src 'self' {{ site.url | escape }} 'unsafe-inline'; img-src 'self' {{ site.url | escape }} data: https://mapmyvisitors.com; connect-src https://mapmyvisitors.com; base-uri 'none'; form-action 'none';"
+    />
+    <title>Visitor globe</title>
+    <link rel="stylesheet" href="{{ '/assets/css/visitor-globe-frame.css' | relative_url | bust_file_cache }}" />
+  </head>
+  <body>
+    <img
+      data-globe-preview
+      src="{{ '/assets/img/visitor-globe-preview.svg' | relative_url | bust_file_cache }}"
+      alt="Illustrative globe, without visitor data"
+      width="220"
+      height="220"
+    />
+    <script
+      defer
+      src="{{ '/assets/js/visitor-globe-frame.js' | relative_url | bust_file_cache }}"
+      data-domains="{{ site.visitor_analytics.domains | escape }}"
+      data-script-url="https://mapmyvisitors.com/globe.js?d={{ site.visitor_analytics.mapmyvisitors.globe_id | url_encode | escape }}&amp;w=220"
+    ></script>
+  </body>
+</html>

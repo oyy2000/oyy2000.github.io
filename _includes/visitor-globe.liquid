@@ -4,7 +4,7 @@
     <div
       class="visitor-globe-widget"
       data-visitor-globe
-      data-script-url="https://mapmyvisitors.com/globe.js?d={{ site.visitor_analytics.mapmyvisitors.globe_id | url_encode | escape }}&amp;w=220"
+      data-frame-url="{{ '/visitor-globe-frame/' | relative_url }}"
       aria-label="Globe showing approximate visitor locations"
     >
       <div class="visitor-globe-preview" data-globe-preview hidden>

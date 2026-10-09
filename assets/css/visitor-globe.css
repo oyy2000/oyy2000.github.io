@@ -11,6 +11,13 @@
   min-height: 240px;
 }
 
+.visitor-globe-frame {
+  display: block;
+  width: 220px;
+  height: 250px;
+  border: 0;
+}
+
 .visitor-globe-preview {
   display: flex;
   flex-direction: column;
