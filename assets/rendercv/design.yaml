@@ -5,3 +5,11 @@ design:
     size: a4
     show_footer: false
     show_top_note: false
+  templates:
+    education_entry:
+      degree_column:
+      main_column: |-
+        **INSTITUTION**, AREA
+        DEGREE
+        SUMMARY
+        HIGHLIGHTS
