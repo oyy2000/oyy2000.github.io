@@ -1,40 +1,38 @@
 cv:
-  name: YANG OUYANG
-  label: Computer Engineering Ph.D. Student
+  name: Yang Ouyang
+  label: Computer Science Ph.D. Student
   email: youyang7@ncsu.edu
-  location: Garner, NC 27529, United States
-  image: ""
-  summary: Ph.D. student at North Carolina State University focusing on Trustworthy & Efficient ML and Interpretable LLMs (Chain-of-Thought).
+  phone: "(984) 325-2686"
+  website: https://oyy2000.github.io/
+  location: Raleigh, NC 27603, United States
+  image:
+  summary: Ph.D. student at North Carolina State University focusing on Efficient Inference-time LLM Reasoning and Trustworthy AI.
 
   social_networks:
     - network: LinkedIn
-      username: yang-ouyang
+      username: yang-ouyang-363425213
     - network: GitHub
-      username: yang-ouyang
-    - network: Website
-      username: yang-ouyang
+      username: oyy2000
 
   address:
-    street: ""
-    city: Garner
+    street:
+    city: Raleigh
     region: North Carolina
-    postalCode: "27529"
+    postalCode: "27603"
     countryCode: US
 
   sections:
     Education:
       - institution: North Carolina State University
         location: Raleigh, U.S.A
-        area: Electrical and Computer Engineering
+        area: Computer Science
         studyType: Doctor of Philosophy
         start_date: 2024-08
-        end_date:
+        end_date: present
         highlights:
           - "Advisor: Jung-Eun Kim"
-          - "Research Interests: Trustworthy & Efficient ML; Interpretable LLMs (Chain-of-Thought)"
-          - "Teaching Assistant of ECE 542 Neural Network, Spring 2025"
-          - "Teaching Assistant of ECE 411 Intro to Machine Learning, Fall 2025"
-          - "Teaching Assistant of ECE 209 Computer Systems Programming, Spring 2026"
+          - "Research Interests: Efficient Inference-time LLM Reasoning and Trustworthy AI"
+          - "Award: 2026-2027 Provost's Doctoral Fellowship"
 
       - institution: Duke University
         location: Durham, U.S.A
@@ -44,7 +42,9 @@ cv:
         end_date: 2024-05
         score: "3.83/4.0"
         highlights:
-          - "Teaching Assistant of ECE 551K: Programming, Data Structures, and Algorithms in C++"
+          - "GPA: 3.83 / 4.0"
+          - "Research Experience: Collaborated with Duke CEI on research projects in trustworthy AI."
+          - "Award: Duke Kunshan University Scholarship Award (162K RMB)"
 
       - institution: Shenzhen University
         location: Shenzhen, China
@@ -53,59 +53,95 @@ cv:
         start_date: 2018-09
         end_date: 2022-07
         score: "3.75/4.0"
-
-    Experience:
-      - company: Trip.com Group Ltd
-        position: Back End Developer Intern, Flight Ticket Department
-        location: Shanghai, China
-        start_date: 2023-05
-        end_date: 2023-08
-        summary: Java, Spring Framework. Optimized MegaSearch aggregation and cache layer for international ticket responses.
         highlights:
-          - "Reduced the Protobuf response size by 50% in total using a variety of methods"
-          - "Compared serialization means using JMH, including Fury, Kryo, and Protobuf"
+          - "GPA: 3.75 / 4.0"
+          - "Awards/Honor: Two-time winner of The Second Award of Studying Star in 2020 and 2021 (ranked 4 and 6); Outstanding Graduate of the Year 2022"
 
-      - company: Amazon Web Services (AWS)
-        position: Back End Developer Intern, Deep JavaLibrary Department
-        location: Mountain View, U.S.A (remote)
-        start_date: 2022-07
-        end_date: 2022-10
-        summary: Java, K8s. Integrated Deep JavaLibrary Model Server with KServe.
-        highlights:
-          - "Developed 3 robust HTTP APIs in Java for KServe's inference engine"
-          - "Deployed containerized DJL-Serving on KServe using yaml files"
-
-    Awards:
-      - title: Scholarship Award (162K RMB)
-        date: 2022
-        awarder: Duke Kunshan University
-
-      - title: Outstanding Graduate of the Year
-        date: 2022
-        awarder: Shenzhen University
-
-      - title: The Second Award of Studying Star
-        date: 2021
-        awarder: Shenzhen University
-
-      - title: The Second Award of Studying Star
-        date: 2020
-        awarder: Shenzhen University
-
-    Publications:
-      - title: "Layer-AdvPatcher: Layer-Level Self-Exposure and Patch for Jailbreak Defense"
+    Selected Publications:
+      - title: "StepBack: Step-Level Error-Localized Resampling for Efficient Test-Time Reasoning"
         authors:
-          - "Yang Ouyang, Hengrui Gu, Shuhang Lin, Wenyue Hua, Jie Peng, Bhavya Kailkhura, Meijun Gao, Tianlong Chen, Kaixiong Zhou"
+          - Yang Ouyang
+          - Jung-Eun Kim
+        publisher: In Proceedings of NeurIPS 2026
+        releaseDate: "2026"
+
+      - title: "DenseSteer: Steering Small Language Models towards Dense Math Reasoning"
+        authors:
+          - Yang Ouyang
+          - Shuhang Lin
+          - Jung-Eun Kim
+        publisher: In Proceedings of ICML 2026
+        releaseDate: "2026"
+
+      - title: "Layer-Level Self-Exposure and Patch: Affirmative Token Mitigation for Jailbreak Attack Defense"
+        authors:
+          - Yang Ouyang
+          - Hengrui Gu
+          - Shuhang Lin
+          - Wenyue Hua
+          - Jie Peng
+          - Bhavya Kailkhura
+          - Meijun Gao
+          - Tianlong Chen
+          - Kaixiong Zhou
         publisher: In Proceedings of NAACL 2025
-        releaseDate: 2025
+        releaseDate: "2025"
 
       - title: "Min-K%++: Improved Baseline for Detecting Pre-Training Data of LLMs"
         authors:
-          - "Jingyang Zhang, Jingwei Sun, Eric Yeats, Yang Ouyang, Martin Kuo, Jianyi Zhang, Hao Frank Yang, Hai Li"
+          - Jingyang Zhang
+          - Jingwei Sun
+          - Eric Yeats
+          - Yang Ouyang
+          - Martin Kuo
+          - Jianyi Zhang
+          - Hao Frank Yang
+          - Hai Li
         publisher: In Proceedings of ICLR 2025
-        releaseDate: 2025
+        releaseDate: "2025"
 
-    Skills:
+    Research Experience:
+      - position: "StepBack: Step-Level Error-Localized Resampling for Efficient LLM Reasoning"
+        company: In Proceedings of NeurIPS 2026
+        location: Raleigh, U.S.A
+        start_date: 2026-01
+        end_date: 2026-05
+        highlights:
+          - Proposed StepBack, a training-free inference-time decoding method that improves self-consistency by localizing likely first-error positions in chain-of-thought trajectories and resampling only uncertain suffixes instead of regenerating full reasoning paths.
+          - Designed lightweight step-level rollback signals using NLL increases and process reward model score drops to allocate test-time compute more efficiently within reasoning trajectories.
+          - Evaluated across math reasoning and multi-hop QA benchmarks; the PRM-based variant improved accuracy on 10 / 14 model-dataset pairs while reducing tokens in all settings, with up to 39.8% token savings over SC@32.
+
+      - position: Large-Scale Elastic Continued Pretraining for MoE Models
+        company: Project
+        location: Shanghai, China
+        start_date: 2026-07
+        end_date: 2026-09
+        highlights:
+          - Adapted elastic training to a closed-source 15B-A2B MoE model using 1,024 GPUs, enabling three nested, weight-sharing subnetworks (3B, 9B, 15B) for different resource budgets.
+          - Explored five architectural dimensions (MoE depth, expert width, expert count, attention heads, and top-k routing) through budget-constrained sampling and importance-guided pruning, constructing nested subnetworks under joint total-parameter and active-parameter constraints.
+          - Optimized shared-weight continued pretraining across 11 benchmarks, outperforming size- and training-budget-matched standalone models by 1.6 and 3.9 points for small and large subnetworks, respectively.
+
+      - position: "DenseSteer: Steering Small Language Models towards Dense Math Reasoning"
+        company: In Proceedings of ICML 2026
+        location: Raleigh, U.S.A
+        start_date: 2025-08
+        end_date: 2026-01
+        highlights:
+          - Proposed Dense Reasoning as a structural property of strong mathematical reasoning, empirically showing that higher reasoning density (fewer steps, more tokens per step) correlates with higher accuracy on GSM8K and OOD benchmarks.
+          - Developed a training-free, inference-time activation steering framework using only 50 rewrite-based contrastive pairs, avoiding distribution shift and preserving low token-level NLL.
+          - Achieved up to +5% GSM8K, +17.5% AMC, and +10% AIME accuracy gains on Qwen-2.5-3B-Instruct and LLaMA-3.2-3B-Instruct compared with heavy training-based distillation methods.
+
+    Internship Experience:
+      - company: Amazon Web Services | AI Infrastructure
+        position: Software Engineer Intern, DeepJavaLibrary Department
+        location: Mountain View (Remote), U.S.A
+        start_date: 2022-07
+        end_date: 2022-10
+        highlights:
+          - Developed core integration components between DJL-Serving and KServe, implementing 3 Java-based APIs for health monitoring, model introspection, and inference data processing within the model serving stack.
+          - Supported cloud-native model serving on Kubernetes by configuring deployment manifests, service endpoints, and runtime parameters for containerized inference workloads.
+
+    Technical Skills:
       - name: Programming Languages
         keywords:
           - Python
@@ -116,3 +152,9 @@ cv:
         keywords:
           - PyTorch
           - Huggingface
+          - Large-Scale Continued Pretraining for MoE LLM
+      - name: AI-assisted Development Tools
+        keywords:
+          - Cursor
+          - Codex
+          - Claude Code

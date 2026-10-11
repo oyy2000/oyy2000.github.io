@@ -1,0 +1,10 @@
+{%- assign cv_date_value = include.value | strip -%}
+{%- if cv_date_value == '' or cv_date_value == 'present' or cv_date_value == 'Present' -%}
+  Present
+{%- elsif cv_date_value.size == 7 -%}
+  {{- cv_date_value | append: '-01' | date: '%b %Y' -}}
+{%- elsif cv_date_value.size >= 10 -%}
+  {{- cv_date_value | date: '%b %Y' -}}
+{%- else -%}
+  {{- cv_date_value -}}
+{%- endif -%}

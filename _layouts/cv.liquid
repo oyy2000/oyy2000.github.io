@@ -108,6 +108,21 @@ layout: default
                   </td>
                 </tr>
               {% endif %}
+              {% if cv.social_networks.size > 0 %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Profiles</b></td>
+                  <td class="p-1 pl-2 font-weight-light">
+                    {% for profile in cv.social_networks %}
+                      {% case profile.network %}
+                        {% when 'LinkedIn' %}
+                          <a href="https://www.linkedin.com/in/{{ profile.username }}/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        {% when 'GitHub' %}
+                          <a href="https://github.com/{{ profile.username }}/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                      {% endcase %}
+                    {% endfor %}
+                  </td>
+                </tr>
+              {% endif %}
             </table>
           </div>
         {% endif %}
@@ -154,13 +169,16 @@ layout: default
               {% if section_title == 'Education' %}
                 {% assign entries = section_entries %}
                 {% include cv/education.liquid %}
+              {% elsif section_title == 'Research Experience' or section_title == 'Internship Experience' %}
+                {% assign entries = section_entries %}
+                {% include cv/experience.liquid %}
               {% elsif section_title == 'Awards' or section_title == 'Honors and Awards' %}
                 {% assign entries = section_entries %}
                 {% include cv/awards.liquid %}
-              {% elsif section_title == 'Publications' %}
+              {% elsif section_title == 'Publications' or section_title == 'Selected Publications' %}
                 {% assign entries = section_entries %}
                 {% include cv/publications.liquid %}
-              {% elsif section_title == 'Skills' %}
+              {% elsif section_title == 'Skills' or section_title == 'Technical Skills' %}
                 {% assign entries = section_entries %}
                 {% include cv/skills.liquid %}
               {% elsif section_title == 'Languages' %}

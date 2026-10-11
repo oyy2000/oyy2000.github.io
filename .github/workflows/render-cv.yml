@@ -6,6 +6,10 @@ on:
       - master
     paths:
       - "_data/cv.yml"
+      - "_data/cv.yaml"
+      - "bin/prepare_rendercv.py"
+      - "requirements.txt"
+      - ".github/workflows/render-cv.yml"
       - "assets/rendercv/design.yaml"
       - "assets/rendercv/locale.yaml"
       - "assets/rendercv/settings.yaml"
@@ -37,22 +41,30 @@ jobs:
             echo "No RenderCV config directory found!"
             exit 1
           fi
-          settings=$(find $rendercv_dir -maxdepth 1 -type f \( -name "settings.yaml" -o -name "settings.yml" \))
+          settings=$(find "$rendercv_dir" -maxdepth 1 -type f \( -name "settings.yaml" -o -name "settings.yml" \))
           if [ -z "$settings" ]; then
             echo "Missing RenderCV config file!"
             exit 1
           fi
-          rendercv render $cv_file --settings $settings
-          rm assets/rendercv/rendercv_output/*.typ
+          rendercv_input=$(mktemp _data/rendercv.XXXXXX.yaml)
+          trap 'rm -f "$rendercv_input"' EXIT
+          python bin/prepare_rendercv.py "$cv_file" "$rendercv_input" --settings "$settings"
+          rendercv render "$rendercv_input"
+          rm -f assets/rendercv/rendercv_output/*.typ
       - name: Upload rendercv_output as an artifact
         uses: actions/upload-artifact@v4
         with:
           name: RenderCV Output
           path: assets/rendercv/rendercv_output
+          if-no-files-found: error
       - name: Push the changes
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git add -A
-          git commit -m "chore: render the latest CV"
-          git push
+          git add -- assets/rendercv/rendercv_output/*.pdf
+          if git diff --cached --quiet; then
+            echo "CV PDF unchanged; no commit needed."
+          else
+            git commit -m "chore: render the latest CV"
+            git push
+          fi

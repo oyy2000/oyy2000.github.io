@@ -16,12 +16,13 @@
           {% capture end_date %}
             {% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}
           {% endcapture %}
+          {% assign start_date = start_date | strip %}
+          {% assign end_date = end_date | strip %}
 
           {% if start_date != '' %}
-            {% comment %} Extract year only from dates like "1933-01-01" or just use "1933" as is {% endcomment %}
-            {% assign startDate = start_date | split: '-' | first %}
-            {% assign endDate = end_date | split: '-' | first | default: 'Present' %}
-            {% assign date = startDate | append: ' - ' | append: endDate %}
+            {% capture startDate %}{% include cv/date.liquid value=start_date %}{% endcapture %}
+            {% capture endDate %}{% include cv/date.liquid value=end_date %}{% endcapture %}
+            {% assign date = startDate | append: ' -<br>' | append: endDate %}
           {% else %}
             {% assign date = '' %}
           {% endif %}
@@ -30,7 +31,12 @@
             <tbody>
               <tr>
                 <td>
-                  <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ date }}</span>
+                  <span
+                    class="badge font-weight-bold danger-color-dark text-uppercase align-middle"
+                    style="min-width: 75px; white-space: normal; line-height: 1.4"
+                  >
+                    {{- date -}}
+                  </span>
                 </td>
               </tr>
               {% capture location %}
