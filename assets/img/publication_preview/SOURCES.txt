@@ -1,7 +1,10 @@
 Publication preview image sources
 
 stepback.png
-  StepBack: main figure supplied by the site owner, rendered from PDF page 1.
+  StepBack: Figure 2 (method overview), rendered at 2400 pixels wide from
+  figures/main.pdf in the arXiv v1 source archive.
+  https://arxiv.org/abs/2611.08403v1
+  https://arxiv.org/src/2611.08403v1
   Local source: stepback.pdf
 
 densesteer.png
@@ -20,4 +23,4 @@ min-k-plus-plus.png
   Min-K%++: Figure 1, PDF page 2 (problem overview and ROC comparison).
   https://arxiv.org/pdf/2404.02936
 
-Images are cropped from the original PDF figures, with white padding added.
+Images are rendered from figure PDFs or cropped from paper PDFs, with white padding where needed.
