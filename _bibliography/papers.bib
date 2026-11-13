@@ -17,16 +17,39 @@
     selected={true}
 }
 
-@article{dou2025plan,
-  bibtex_show={true},
-  abbr={ICML},
-  preview={plan-then-action.png},
-  title={Plan Then Action: High-Level Planning Guidance Reinforcement Learning for LLM Reasoning},
-  author={Dou, Zhihao and Zhao, Qinjian and Wan, Zhongwei and Zhang, Dinggen and Wang, Weida and Raiyan, Towsif and Chen, Benteng and Pan, Qingtao and Ouyang, Yang and Gao, Zhiqiang and others},
-  journal={arXiv preprint arXiv:2510.01833},
-  pdf={https://arxiv.org/abs/2510.01833},
-  year={2025},
-  selected={true}
+@inproceedings{dou2025plan,
+    abbr={ICML},
+    preview={plan-then-action.png},
+    bibtex_show={true},
+    title = "Plan Then Action: High-Level Planning Guidance Reinforcement Learning for {LLM} Reasoning",
+    author = "Dou, Zhihao and
+      Zhao, Qinjian and
+      Wan, Zhongwei and
+      Zhang, Dinggen and
+      Wang, Weida and
+      Chen, Benteng and
+      Raiyan, Towsif and
+      Pan, Qingtao and
+      Ouyang, Yang and
+      Song, Chaoda and
+      Gao, Zhiqiang and
+      Zhang, Shufei and
+      Biswas, Sumon",
+    editor = "Zhang, Tong and Dudik, Miroslav and Jaggi, Martin and Agarwal, Alekh and Li, Sharon and Schuurmans, Dale and Zhu, Jerry and Berkenkamp, Felix and Dong, Hanze and Bietti, Alberto",
+    booktitle = "Proceedings of the 43rd International Conference on Machine Learning",
+    month = jul,
+    year = "2026",
+    volume = "306",
+    series = "Proceedings of Machine Learning Research",
+    publisher = "PMLR",
+    pages = "26269--26290",
+    url = "https://proceedings.mlr.press/v306/dou26c.html",
+    eprint={2510.01833},
+    archivePrefix={arXiv},
+    primaryClass={cs.AI},
+    abstract = "Large language models (LLMs) demonstrate strong reasoning abilities via Chain-of-Thought (CoT), but their token-level generation encourages local decisions and lacks global planning, often leading to redundant or inaccurate reasoning. Existing methods, such as tree-based search and reinforcement learning (RL), attempt to address this issue but incur high computational costs and still struggle to produce reliable reasoning trajectories. To address these challenges, we propose Plan-Then-Action Enhanced Reasoning with Group Relative Policy Optimization (PTA-GRPO), a two-stage framework designed to jointly improve high-level planning and fine-grained CoT reasoning. Specifically, in the first stage, a given LLM is responsible for summarizing CoT reasoning into compact high-level guidance, which is then leveraged for supervised fine-tuning. Then, we introduce a guidance-aware reinforcement learning method that jointly optimizes the final output and the quality of guidance, enhancing reasoning effectiveness. We evaluate PTA-GRPO on ten reasoning benchmarks across mathematics and natural sciences, using five diverse base models spanning multiple data modalities. The results show that PTA-GRPO consistently delivers significant improvements across models and tasks, demonstrating strong effectiveness and generalization.",
+    pdf={https://raw.githubusercontent.com/mlresearch/v306/main/assets/dou26c/dou26c.pdf},
+    selected={true}
 }
 
 @inproceedings{ouyang2026densesteersteeringsmalllanguage,
